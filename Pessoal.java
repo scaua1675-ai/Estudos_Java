@@ -1,39 +1,67 @@
 public class Pessoa {
-    private Sting nome;
-    private string cpf;
-    private string endereco;
-    private telefone;
-    public string sexo;
-    
-    public Pessoa(String nome, String cpf, String endereco, String sexo) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.endereco = endereco;
-        this.telefone = telefone;
-        this.sexo = sexo;
-    }
+    private String nome;
+    private String endereco;
+    private String telefone;
 
-    public void cadastro() {
-        System.out.println("Pessoa cadastrada com sucesso!");
-        System.out.println("Nome: " + nome);
-        System.out.println("CPF: " + cpf);
-        System.out.println("Endereço: " + endereco);
-        System.out.println("Telefone: " + telefone);
-        System.out.println("Sexo: " + sexo);
-    }
-    public Sting getNome() {
+    public String getNome() {
         return nome;
     }
-    public String getCpf() {
-        return cpf;
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-    public Sting getEndereco() {
+
+    public String getEndereco() {
         return endereco;
     }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
     public String getTelefone() {
         return telefone;
     }
-    public String getSexo() {
-        return sexo;
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+}
+public class ProgramaPessoa {
+    public static void main(String[] args) {
+
+        Pessoa pessoa = new Pessoa();
+
+        pessoa.setNome("João Silva");
+        pessoa.setEndereco("Rua das Flores, 123");
+        pessoa.setTelefone("(11) 99999-9999");
+
+        System.out.println("Pessoa cadastrada com sucesso!");
+        System.out.println("Nome: " + pessoa.getNome());
+        System.out.println("Endereço: " + pessoa.getEndereco());
+        System.out.println("Telefone: " + pessoa.getTelefone());
+    }
+}
+
+public class PessoaFisica extends Pessoa {
+    private String cpf;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+}
+public class PessoaJuridica extends Pessoa {
+    private String cnpj;
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 }
