@@ -1,0 +1,42 @@
+public class ProgramaAssociacao {
+
+    public static void main(String[] args) {
+
+        // Autor
+        Autor autor = new Autor();
+        autor.setNome("Machado de Assis");
+
+        // Livro
+        Livro livro = new Livro();
+        livro.setTitulo("Dom Casmurro");
+        livro.setAutor(autor);
+
+        // Capítulos
+        Capitulo cap1 = new Capitulo();
+        cap1.setTitulo("Capítulo 1 - Do Título");
+
+        Capitulo cap2 = new Capitulo();
+        cap2.setTitulo("Capítulo 2 - Do Livro");
+
+        livro.adicionarCapitulo(cap1);
+        livro.adicionarCapitulo(cap2);
+
+        // Biblioteca
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.setNome("Biblioteca Central");
+        biblioteca.adicionarLivro(livro);
+
+        // Exibição
+        System.out.println("Biblioteca: " + biblioteca.getNome());
+
+        for (Livro l : biblioteca.getLivros()) {
+            System.out.println("\nLivro: " + l.getTitulo());
+            System.out.println("Autor: " + l.getAutor().getNome());
+
+            System.out.println("Capítulos:");
+            for (Capitulo c : l.getCapitulos()) {
+                System.out.println("- " + c.getTitulo());
+            }
+        }
+    }
+}
