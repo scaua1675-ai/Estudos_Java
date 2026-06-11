@@ -1,0 +1,46 @@
+public class ContaBancaria {
+   private String titular;
+   private int numero;
+   private double saldo;
+
+   public static void main(String[] var0) {
+      System.out.println("O programa iniciou com sucesso!");
+   }
+
+   public ContaBancaria(String var1, int var2, double var3) {
+      this.titular = var1;
+      this.numero = var2;
+      this.saldo = var3;
+   }
+
+   public void depositar(double var1) {
+      if (var1 > (double)0.0F) {
+         this.saldo += var1;
+         System.out.println("Depósito de R$ " + var1 + " realizado com sucesso.");
+      }
+
+   }
+
+   public boolean sacar(double var1) {
+      if (var1 > (double)0.0F && var1 <= this.saldo) {
+         this.saldo -= var1;
+         System.out.println("Saque de R$ " + var1 + " realizado.");
+         return true;
+      } else {
+         System.out.println("Saldo insuficiente ou valor inválido.");
+         return false;
+      }
+   }
+
+   public String getTitular() {
+      return this.titular;
+   }
+
+   public double getSaldo() {
+      return this.saldo;
+   }
+
+   public int getNumero() {
+      return this.numero;
+   }
+}
