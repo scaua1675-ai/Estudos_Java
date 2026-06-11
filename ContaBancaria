@@ -1,26 +1,17 @@
 public class ContaBancaria {
-    // Atributos (O que a conta TEM)
+    // Atributos
     private String titular;
     private int numero;
     private double saldo;
-    
 
-    public static void main(String[] args) {
-        // O código que você quer que rode começa aqui!
-        System.out.println("O programa iniciou com sucesso!");
-        
-        // Exemplo: Criando um objeto da própria classe
-        // ContaBancaria minhaConta = new ContaBancaria();
-    }
-     
-    // Construtor (Para inicializar a conta com valores)
+    // Construtor
     public ContaBancaria(String titular, int numero, double saldoInicial) {
         this.titular = titular;
         this.numero = numero;
         this.saldo = saldoInicial;
     }
 
-    // Métodos (O que a conta FAZ)
+    // Métodos
     public void depositar(double valor) {
         if (valor > 0) {
             saldo += valor;
@@ -39,8 +30,31 @@ public class ContaBancaria {
         }
     }
 
-    // Getters para acessar informações de forma segura
-    public String getTitular() { return titular; }
-    public double getSaldo() { return saldo; }
-    public int getNumero() { return numero; }
+    // Getters
+    public String getTitular() {
+        return titular;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    // Método principal
+    public static void main(String[] args) {
+
+        ContaBancaria conta = new ContaBancaria("João Silva", 1234, 1000.00);
+
+        System.out.println("Titular: " + conta.getTitular());
+        System.out.println("Número: " + conta.getNumero());
+        System.out.println("Saldo inicial: R$ " + conta.getSaldo());
+
+        conta.depositar(500.00);
+        conta.sacar(200.00);
+
+        System.out.println("Saldo final: R$ " + conta.getSaldo());
+    }
 }
